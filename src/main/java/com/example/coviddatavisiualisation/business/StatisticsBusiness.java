@@ -104,10 +104,10 @@ public class StatisticsBusiness implements StatisticsService
             country.setTauxGuerison(c1.get().getTauxGuerison());
             country.setTauxDeces(c1.get().getTauxDeces());
             country.setInfectes(c1.get().getInfectes()-c2.get().getInfectes());
-            country.setDeces(c1.get().getDeces());
+            country.setDeces(c1.get().getDeces()-c2.get().getDeces());
             country.setPays(c1.get().getPays());
             country.setDate(c1.get().getDate());
-            country.setGuerisons(c1.get().getGuerisons());
+            country.setGuerisons(c1.get().getGuerisons()-c2.get().getGuerisons());
             return Optional.of(country);
         }
         return c1;
