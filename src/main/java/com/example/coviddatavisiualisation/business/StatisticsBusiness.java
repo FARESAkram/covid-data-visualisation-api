@@ -108,7 +108,6 @@ public class StatisticsBusiness implements StatisticsService
             country.setPays(c1.get().getPays());
             country.setDate(c1.get().getDate());
             country.setGuerisons(c1.get().getGuerisons());
-            country.setInfectes(Math.abs(country.getInfectes() - c2.get().getInfectes()));
             return Optional.of(country);
         }
         return c1;
