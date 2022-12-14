@@ -4,6 +4,6 @@ COPY . .
 
 RUN ./mvnw clean package -DskipTests=true
 
-EXPOSE 8080
+EXPOSE 80
 
-CMD java -jar ./target/covid-data-visiualisation-0.0.1-SNAPSHOT.jar
+CMD java -jar ./target/covid-data-visiualisation-0.0.1-SNAPSHOT.jar --server.port=80
