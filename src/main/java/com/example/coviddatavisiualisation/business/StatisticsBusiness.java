@@ -100,14 +100,15 @@ public class StatisticsBusiness implements StatisticsService
         if ( c2.isPresent() )
         {
             Country country = new Country();
-            country.setTauxInfecte(c1.get().getTauxInfecte());
-            country.setTauxGuerison(c1.get().getTauxGuerison());
-            country.setTauxDeces(c1.get().getTauxDeces());
-            country.setInfectes(c1.get().getInfectes()-c2.get().getInfectes());
-            country.setDeces(c1.get().getDeces()-c2.get().getDeces());
             country.setPays(c1.get().getPays());
             country.setDate(c1.get().getDate());
+            country.setInfectes(c1.get().getInfectes()-c2.get().getInfectes());
+            country.setDeces(c1.get().getDeces()-c2.get().getDeces());
             country.setGuerisons(c1.get().getGuerisons()-c2.get().getGuerisons());
+            double sum = country.getInfectes()+country.getDeces()+country.getGuerisons();
+            country.setTauxInfecte((country.getInfectes()/sum)*100);
+            country.setTauxDeces((country.getDeces()/sum)*100);
+            country.setTauxGuerison((country.getGuerisons()/sum)*100);
             return Optional.of(country);
         }
         return c1;

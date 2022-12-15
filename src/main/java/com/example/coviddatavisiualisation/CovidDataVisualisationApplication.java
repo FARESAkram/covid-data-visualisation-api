@@ -8,6 +8,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.io.File;
 import java.util.List;
@@ -21,6 +22,7 @@ public class CovidDataVisualisationApplication {
         SpringApplication.run(CovidDataVisualisationApplication.class, args);
     }
 
+    @Scheduled(fixedDelay = 1000 * 60 * 60 * 24)
     @PostConstruct
     public void init()
     {
