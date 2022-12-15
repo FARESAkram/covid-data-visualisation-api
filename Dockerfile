@@ -1,8 +1,8 @@
 FROM openjdk:17-alpine
 
-COPY . .
+ADD . .
 
-RUN ./mvnw clean package -DskipTests=true
+RUN ./mvnw clean package -DskipTests
 
 EXPOSE 80
 
