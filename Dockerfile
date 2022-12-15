@@ -1,6 +1,6 @@
 FROM openjdk:17-alpine
 
-ADD . .
+COPY . .
 
 RUN ./mvnw clean package -DskipTests
 
